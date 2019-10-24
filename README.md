@@ -1,0 +1,3 @@
+# PHP-Agenda
+
+Práctica de agenda sin guardar información en BBDD, cookies, sesiones...
