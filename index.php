@@ -13,17 +13,23 @@ and open the template in the editor.
         <?php
         // Inicializar array "agenda" (será un array asociativo [indice => valor])
         if (isset($_GET["agenda"])) {
-            $agenda = $_GET["agenda"];
+            $agenda = $_GET["agenda"]; // si se recibe una agenda la guardamos
         } else {
-            $agenda = [];
-            //$agenda=["aaa"=>"1111", "bbb"=>"2222", "ccc"=>"3333"];
+            $agenda = []; // si NO se recibe una agenda crea una vacía
         }
+        
+        // comprobamos los datos recibidos
         if (isset($_GET["submit"])) {
+            // si el nombre está vacío muestra una alerta
             if (empty($_GET["nom"])) {
                 echo"<script>alert('Debe introducir un nombre')</script>";
+                
+            // si el teléfono está vacío, borra la entrada en la agenda
             } elseif (empty($_GET["tel"])) {
                 unset($agenda[$_GET["nom"]]);
-            } else { // añade a la agenda o actualiza
+                
+            // añade a la agenda o actualiza
+            } else { 
                 $nuevo_nom = $_GET["nom"];
                 $nuevo_tel = $_GET["tel"];
                 $agenda[$nuevo_nom] = $nuevo_tel;
@@ -53,10 +59,15 @@ and open the template in the editor.
         <?php
         //Mostrar agenda
         echo '<br>Lista de contactos:<br>';
+        
+        // agenda vacía
         if (count($agenda) == 0) {
             echo '<p>No hay contactos en la agenda</p>';
+            
+        // agenda con datos
         } else {
             echo '<ul>';
+            // recorremos la agenda e imprimimos las entradas
             foreach ($agenda as $nom => $tel) {
                 echo '<li>' . $nom . ': ' . $tel . '</li>';
             }
