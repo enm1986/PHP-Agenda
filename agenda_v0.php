@@ -61,7 +61,7 @@ and open the template in the editor.
         echo '<br>Lista de contactos:<br>';
         
         // agenda vacía
-        if (count($agenda) == 0) {
+        if (count($agenda) === 0) {
             echo '<p>No hay contactos en la agenda</p>';
             
         // agenda con datos

@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of Database
  *
@@ -16,7 +10,7 @@ class Database {
     // specify your own database credentials
     private const HOST = "localhost";
     private const DRIVER = "pgsql";
-    private const DB_NAME = "php_agenda";
+    private const DB_NAME = "php-agenda";
     private const USERNAME = "eugenio";
     private const PASSWORD = "eugenio";
     public $conn;
